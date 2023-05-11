@@ -1,0 +1,14 @@
+name: My Pull Request Action
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Pull Request Event
+        run: echo "Pull Request Event Triggered"
+      - name: Echo GitHub Secret
+        run: echo ${{ secrets.MY_SECRET }}
