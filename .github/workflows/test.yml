@@ -12,3 +12,8 @@ jobs:
         run: echo "Pull Request Event Triggered"
       - name: Echo GitHub Secret
         run: echo ${{ secrets.MY_SECRET }}
+      - name: Echo pull request title
+        run: echo "Pull Request Title:${{github.event.pull_request.title }}"
+      - name: Check pull request title
+        if: contains(github.event.pull_request.title, 'urgent')
+        run: echo "This pull request is urgent! Performing emergency action..."
